@@ -1,9 +1,11 @@
 import * as React from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
-interface InputLabelProps {
+interface InputProps {
+  hasLabel?: boolean;
   lblInput?: string;
   keyboardType:
+    | "default"
     | "email-address"
     | "numeric"
     | "visible-password"
@@ -13,15 +15,16 @@ interface InputLabelProps {
   secureTextEntry?: boolean;
 }
 
-export const InputLabel = ({
+export const Input = ({
+  hasLabel,
   keyboardType,
   lblInput,
   placeholder,
   secureTextEntry,
-}: InputLabelProps) => {
+}: InputProps) => {
   return (
     <View style={styles.frmInput}>
-      <Text style={styles.txtLabel}>{lblInput}</Text>
+      {hasLabel && <Text style={styles.txtLabel}>{lblInput}</Text>}
       <TextInput
         style={styles.txtForm}
         keyboardType={keyboardType}
@@ -47,7 +50,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     fontSize: 14,
     backgroundColor: "#FFF",
-    borderColor: "#AAAAAA",
+    borderColor: "#000",
     borderWidth: 1,
     borderRadius: 20,
   },

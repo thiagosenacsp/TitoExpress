@@ -3,10 +3,8 @@ import { View, Text, StyleSheet, Image, ToastAndroid } from "react-native";
 import { RadioButton } from "react-native-paper";
 import { Input } from "../../../src/components/Input";
 import { RoundedButton } from "../../../src/components/RoundedButton";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
 
-export const HomeScreen = () => {
+export const RegisterScreen = () => {
   const [checked, setChecked] = useState("1");
   return (
     <View style={styles.todo}>
@@ -17,6 +15,18 @@ export const HomeScreen = () => {
       <View style={styles.form}>
         <Input
           hasLabel
+          lblInput="Nome"
+          placeholder="Digite seu nome"
+          keyboardType="default"
+        />
+        <Input
+          hasLabel
+          lblInput="Sobrenome"
+          placeholder="Digite seu sobrenome"
+          keyboardType="default"
+        />
+        <Input
+          hasLabel
           lblInput="E-mail"
           placeholder="Digite seu e-mail"
           keyboardType="email-address"
@@ -25,6 +35,13 @@ export const HomeScreen = () => {
           hasLabel
           lblInput="Senha"
           placeholder="Digite sua senha"
+          keyboardType="visible-password"
+          secureTextEntry
+        />
+        <Input
+          hasLabel
+          lblInput="Confirme a senha"
+          placeholder="Digite novamente a sua senha"
           keyboardType="visible-password"
           secureTextEntry
         />
@@ -69,7 +86,7 @@ export const HomeScreen = () => {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   todo: {
