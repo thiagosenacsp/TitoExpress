@@ -16,12 +16,12 @@ export const RoundedButton = ({ lblButton, onPress }: RoundedButtonProps) => {
 
 const styles = StyleSheet.create({
   roundedButton: {
-    width: "100%",
-    height: 40,
-    backgroundColor: "#FF4646",
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
+    height: 40,
     borderRadius: 20,
+    backgroundColor: "#FF4646",
   },
   lblButton: {
     color: "#FFF",

@@ -37,11 +37,6 @@ export default function App() {
           />
         </View>
         <View style={{ marginTop: 30 }}>
-          {/*<Button
-            title="Entar"
-            color="#f00"
-            //onPress={() => ToastAndroid.show('Sucesso!', ToastAndroid.LONG)}
-          />*/}
           <RoundedButton
             lblButton="Entrar"
             onPress={() => ToastAndroid.show("Sucesso!", ToastAndroid.SHORT)}

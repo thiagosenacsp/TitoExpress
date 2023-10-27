@@ -3,16 +3,30 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 
 interface InputLabelProps {
   lblInput?: string;
+  keyboardType:
+    | "email-address"
+    | "numeric"
+    | "visible-password"
+    | "url"
+    | "web-search";
+  placeholder?: string;
+  secureTextEntry?: boolean;
 }
 
-export const InputLabel = ({ lblInput }: InputLabelProps) => {
+export const InputLabel = ({
+  keyboardType,
+  lblInput,
+  placeholder,
+  secureTextEntry,
+}: InputLabelProps) => {
   return (
     <View style={styles.frmInput}>
-      <Text style={styles.txtLabel}>E-mail</Text>
+      <Text style={styles.txtLabel}>{lblInput}</Text>
       <TextInput
         style={styles.txtForm}
-        placeholder="Digite seu email!"
-        keyboardType="email-address"
+        keyboardType={keyboardType}
+        placeholder={placeholder}
+        secureTextEntry={secureTextEntry}
       />
     </View>
   );
@@ -21,7 +35,7 @@ export const InputLabel = ({ lblInput }: InputLabelProps) => {
 const styles = StyleSheet.create({
   frmInput: {
     flexDirection: "column",
-    marginTop: 30,
+    gap: 8,
   },
   txtLabel: {
     fontSize: 14,
@@ -30,11 +44,11 @@ const styles = StyleSheet.create({
   txtForm: {
     width: "100%",
     padding: 5,
-    paddingLeft: 25,
+    paddingLeft: 20,
     fontSize: 14,
-    borderColor: "#aaa",
+    backgroundColor: "#FFF",
+    borderColor: "#AAAAAA",
     borderWidth: 1,
-    marginTop: 10,
-    borderRadius: 25,
+    borderRadius: 20,
   },
 });
