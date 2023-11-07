@@ -15,34 +15,34 @@ export const RegisterScreen = () => {
       <View style={styles.form}>
         <Input
           hasLabel
-          lblInput="Nome"
+          label="Nome"
           placeholder="Digite seu nome"
           keyboardType="default"
         />
         <Input
           hasLabel
-          lblInput="Sobrenome"
+          label="Sobrenome"
           placeholder="Digite seu sobrenome"
           keyboardType="default"
         />
         <Input
           hasLabel
-          lblInput="E-mail"
+          label="E-mail"
           placeholder="Digite seu e-mail"
           keyboardType="email-address"
         />
         <Input
           hasLabel
-          lblInput="Senha"
+          label="Senha"
           placeholder="Digite sua senha"
-          keyboardType="visible-password"
+          keyboardType="default"
           secureTextEntry
         />
         <Input
           hasLabel
-          lblInput="Confirme a senha"
+          label="Confirme a senha"
           placeholder="Digite novamente a sua senha"
-          keyboardType="visible-password"
+          keyboardType="default"
           secureTextEntry
         />
         <View

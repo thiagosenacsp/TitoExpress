@@ -28,7 +28,7 @@ export const HomeScreen = () => {
       <View style={styles.form}>
         <Input
           hasLabel
-          lblInput="E-mail"
+          label="E-mail"
           placeholder="Digite seu e-mail"
           keyboardType="email-address"
           value={email}
@@ -36,9 +36,9 @@ export const HomeScreen = () => {
         />
         <Input
           hasLabel
-          lblInput="Senha"
+          label="Senha"
           placeholder="Digite sua senha"
-          keyboardType="visible-password"
+          keyboardType="default"
           secureTextEntry
           value={senha}
           onChangeText={(text) => setSenha(text)}

@@ -1,41 +1,37 @@
 import * as React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { KeyboardType, StyleSheet, Text, TextInput, View } from "react-native";
 
 interface InputProps {
   hasLabel?: boolean;
-  lblInput?: string;
-  keyboardType:
-    | "default"
-    | "email-address"
-    | "numeric"
-    | "visible-password"
-    | "url"
-    | "web-search";
+  label?: string;
+  keyboardType: KeyboardType;
   placeholder?: string;
+  property?: string;
   secureTextEntry?: boolean;
   value?: string;
-  onChangeText?: (text) => void;
+  onChangeText?: (property: string, value: any) => void;
 }
 
 export const Input = ({
   hasLabel,
   keyboardType,
-  lblInput,
+  label,
   onChangeText,
   placeholder,
-  secureTextEntry,
+  property,
+  secureTextEntry = false,
   value,
 }: InputProps) => {
   return (
     <View style={styles.frmInput}>
-      {hasLabel && <Text style={styles.txtLabel}>{lblInput}</Text>}
+      {hasLabel && <Text style={styles.txtLabel}>{label}</Text>}
       <TextInput
         style={styles.txtForm}
         keyboardType={keyboardType}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
         value={value}
-        onChangeText={onChangeText}
+        onChangeText={(text) => onChangeText(property, text)}
       />
     </View>
   );
