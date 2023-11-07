@@ -13,14 +13,18 @@ interface InputProps {
     | "web-search";
   placeholder?: string;
   secureTextEntry?: boolean;
+  value?: string;
+  onChangeText?: (text) => void;
 }
 
 export const Input = ({
   hasLabel,
   keyboardType,
   lblInput,
+  onChangeText,
   placeholder,
   secureTextEntry,
+  value,
 }: InputProps) => {
   return (
     <View style={styles.frmInput}>
@@ -30,6 +34,8 @@ export const Input = ({
         keyboardType={keyboardType}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
+        value={value}
+        onChangeText={onChangeText}
       />
     </View>
   );

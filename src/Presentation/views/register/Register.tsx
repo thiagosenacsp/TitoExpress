@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Image, ToastAndroid } from "react-native";
 import { RadioButton } from "react-native-paper";
-import { Input } from "../../../src/components/Input";
-import { RoundedButton } from "../../../src/components/RoundedButton";
+import { Input } from "../../components/Input";
+import { RoundedButton } from "../../components/RoundedButton";
 
 export const RegisterScreen = () => {
   const [checked, setChecked] = useState("1");
@@ -10,7 +10,7 @@ export const RegisterScreen = () => {
     <View style={styles.todo}>
       <Image
         style={styles.logoImg}
-        source={require("../../../assets/layout/logo.png")}
+        source={require("../../../../assets/layout/logo.png")}
       />
       <View style={styles.form}>
         <Input
