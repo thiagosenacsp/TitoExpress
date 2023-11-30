@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const HomeViewModel = () => {
   const [values, setValues] = useState({
@@ -10,12 +10,12 @@ const HomeViewModel = () => {
     setValues({ ...values, [property]: value });
 
   const register = () => {
-    console.log(JSON.stringify(values))
-  }
+    console.log(JSON.stringify(values));
+  };
   return {
     ...values,
     onChange,
-    register
+    register,
   };
 };
 

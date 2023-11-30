@@ -1,22 +1,15 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from "react-native";
-import { RadioButton } from "react-native-paper";
+import React from "react";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+// import { RadioButton } from "react-native-paper";
 import { Input } from "../../components/Input";
 import { RoundedButton } from "../../components/RoundedButton";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../../App";
+import HomeViewModel from "./ViewHome";
 
 export const HomeScreen = () => {
-  const [checked, setChecked] = useState("1");
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const { email, senha, onChange, register } = HomeViewModel();
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
@@ -32,7 +25,8 @@ export const HomeScreen = () => {
           placeholder="Digite seu e-mail"
           keyboardType="email-address"
           value={email}
-          onChangeText={(text) => setEmail(text)}
+          property="email"
+          onChangeText={onChange}
         />
         <Input
           hasLabel
@@ -41,9 +35,10 @@ export const HomeScreen = () => {
           keyboardType="default"
           secureTextEntry
           value={senha}
-          onChangeText={(text) => setSenha(text)}
+          property="senha"
+          onChangeText={onChange}
         />
-        <View
+        {/* <View
           style={{
             display: "flex",
             flexDirection: "row",
@@ -74,7 +69,7 @@ export const HomeScreen = () => {
             />
             <Text>Entregador</Text>
           </View>
-        </View>
+        </View> */}
         <View>
           <Text>
             Não tem conta? Registre-se{" "}
@@ -86,13 +81,7 @@ export const HomeScreen = () => {
           </Text>
         </View>
         <View>
-          <RoundedButton
-            lblButton="Entrar"
-            onPress={() => {
-              console.log("email: ", email);
-              console.log("senha: ", senha);
-            }}
-          />
+          <RoundedButton lblButton="Entrar" onPress={() => register()} />
         </View>
       </View>
     </View>
